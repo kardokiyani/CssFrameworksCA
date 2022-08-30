@@ -1,1 +1,12 @@
+//Bootstrap variable overrides
+@import "variables";
+
+//Bootstrap Styles
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
 @import "styles.scss";
+
+.formStyle {
+  margin: 20px;
+}
+

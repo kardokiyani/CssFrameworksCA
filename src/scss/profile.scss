@@ -1,3 +1,9 @@
+//Bootstrap variable overrides
+@import "variables";
+
+//Bootstrap Styles
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
 @import "styles.scss";
 
 .img-style {
@@ -9,12 +15,29 @@
   justify-content: center;
 }
 
-.h3-style {
+.h4-style {
   display: flex;
   justify-content: center;
 }
 
-.list-group-item {
+.list-group {
   padding: 20px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.contactsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.detailsContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.bioContainer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
