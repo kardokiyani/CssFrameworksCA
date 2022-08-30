@@ -1,12 +1,12 @@
 .h1-style {
   font-size: 2rem;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-decoration: underline;
 }
 
 .h1-container {
   display: flex;
-  justify-content: start;
+  justify-content: center;
 }
 
 .d-flex {
@@ -45,3 +45,5 @@ nav ul {
   background-color: #0a3641;
   color: #fff;
 }
+
+/*# sourceMappingURL=login.css.map */

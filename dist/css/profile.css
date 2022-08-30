@@ -1,12 +1,12 @@
 .h1-style {
   font-size: 2rem;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-decoration: underline;
 }
 
 .h1-container {
   display: flex;
-  justify-content: start;
+  justify-content: center;
 }
 
 .d-flex {
@@ -45,3 +45,24 @@ nav ul {
   background-color: #0a3641;
   color: #fff;
 }
+
+.img-style {
+  width: 500px;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.h3-style {
+  display: flex;
+  justify-content: center;
+}
+
+.list-group-item {
+  padding: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/*# sourceMappingURL=profile.css.map */
