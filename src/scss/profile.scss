@@ -1,0 +1,20 @@
+@import "styles.scss";
+
+.img-style {
+  width: 500px;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.h3-style {
+  display: flex;
+  justify-content: center;
+}
+
+.list-group-item {
+  padding: 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
