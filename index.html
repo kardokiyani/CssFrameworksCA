@@ -63,6 +63,7 @@
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
         </ul>
+        <div>
         <form class="form-inline my-2 my-lg-0">
           <input
             class="form-control mr-sm-2"
@@ -81,7 +82,7 @@
         <h1 class="h1-style">WELCOME TO KARDO`S SITE</h1>
       </div>
 
-      <section style="background-color: #0a3641">
+      <section class="wallBackground">
         <div class="container my-5 py-5">
           <div class="row d-flex justify-content-center">
             <div class="col-md-12 col-lg-10">
@@ -251,15 +252,9 @@
           </div>
         </div>
       </section>
-
-      <div class="formPost">
-        <label for="message" class="messageDisplay">Create a new post</label>
-        <div class="formInputContainer">
-          <textarea id="message" name="message" class="formInput"></textarea>
-        </div>
-        <div class="buttonContainer">
-          <input type="submit" value="SUBMIT" class="buttonStyle" />
-        </div>
+      <div class="formGroup">
+        <label for="comment">Create a new post:</label>
+        <textarea class="form-control" rows="5" id="comment"></textarea>
       </div>
     </main>
     <footer></footer>

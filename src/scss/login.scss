@@ -10,3 +10,11 @@
   margin: 20px;
 }
 
+.btn-primary {
+  color: $white;
+}
+
+.btn-primary:hover {
+  color: $green;
+  text-decoration: underline;
+}

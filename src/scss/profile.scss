@@ -41,3 +41,27 @@
   justify-content: center;
   padding: 10px;
 }
+
+.btn-primary {
+  color: $white;
+}
+
+.btn-primary:hover {
+  color: $green;
+  text-decoration: underline;
+}
+
+.page-link {
+  background-color: $blue;
+  color: $white;
+}
+
+.page-link:hover {
+  background-color: $blue;
+  color: $green;
+  text-decoration: underline;
+}
+
+.form-group {
+  padding: 30px;
+}
