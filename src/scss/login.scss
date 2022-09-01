@@ -18,3 +18,7 @@
   color: $green;
   text-decoration: underline;
 }
+
+input:invalid {
+  border: 2px solid $red;
+}

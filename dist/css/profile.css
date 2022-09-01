@@ -21647,6 +21647,36 @@ nav ul {
 
 .formGroup {
   padding: 30px;
+  width: 500px;
+}
+
+.commentStyle {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.postForm {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.postFormButton {
+  background-color: #0a3641;
+  color: #fff;
+  width: 150px;
+  padding: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.postFormButton:hover {
+  color: #198754;
+  text-decoration: underline;
 }
 
 .img-style {
