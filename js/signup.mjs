@@ -2,6 +2,10 @@
 
 const API_BASE_URL = "https://nf-api.onrender.com";
 
+const signupForm = document.querySelector("#form");
+
+signupForm.addEventListener("submit", validateLogin);
+
 /**
  * API call that registers the user
  * @param {string} url
@@ -29,9 +33,9 @@ async function registerUser(url, userData) {
 }
 
 const userToRegister = {
-  name: "test_user_demo",
-  email: "test_demo@noroff.no",
-  password: "silver123",
+  name: "kardo_kiyani",
+  email: "kardo_kiyani@stud.noroff.no",
+  password: "kardokiyani1998",
 };
 
 const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="dist/css/login.css" />
-    <title>Signup Page</title>
+    <title>Login Page</title>
     <script></script>
   </head>
   <body>
@@ -22,13 +22,13 @@
       <div class="h1-container">
         <h1 class="h1-style">LOGIN PAGE</h1>
       </div>
-      <form action="/profile.html" class="formStyle">
+      <form id="formId" action="/profile.html" class="formStyle">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label"
             >Email address</label
           >
           <input
-            type="email"
+            type="current-email"
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
@@ -41,7 +41,7 @@
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input
-            type="password"
+            type="current-password"
             class="form-control"
             id="exampleInputPassword1"
             required="required"
