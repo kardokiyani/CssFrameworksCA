@@ -28,12 +28,15 @@
             >Email address</label
           >
           <input
-            type="current-email"
+            name="email"
+            type="email"
+            autocomplete="off"
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             required="required"
           />
+          <div class="formInputError" id="emailError">Please enter a valid email address</div>
           <div id="emailHelp" class="form-text">
             We'll never share your email with anyone else.
           </div>
@@ -41,12 +44,15 @@
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input
-            type="current-password"
+            password="password"
+            type="password"
+            autocomplete="off"
             class="form-control"
             id="exampleInputPassword1"
             required="required"
             minlength="7"
           />
+          <div class="formInputError" id="passwordError">Your password should obtain minimum 10 letters or numbers</div>
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1" />
@@ -63,5 +69,6 @@
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ></script>
     <script type="module" src="js/login.mjs"></script>
+    <script type="module" src="js/validation.mjs"></script>
   </body>
 </html>

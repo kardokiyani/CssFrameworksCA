@@ -1,5 +1,7 @@
 // LOGIN USER
 
+import {validateEmail, checkLength} from "./validation.mjs"
+
 const API_BASE_URL = "https://nf-api.onrender.com";
 
 const loginForm = document.querySelector("#form");
@@ -8,14 +10,14 @@ const email = document.querySelector("#exampleInputEmail1");
 
 const password = document.querySelector("#exampleInputPassword1");
 
-async function loginUser(url, userData) {
+async function loginUser(url) {
   try {
     const postData = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: { email: email.value, password: password.value },
+      body: JSON.stringify({ email: email.value, password: password.value }),
     };
     const response = await fetch(url, postData);
     console.log(response);
@@ -26,33 +28,26 @@ async function loginUser(url, userData) {
   } catch (error) {
     console.log(error);
   }
+  const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
 }
 
-function validateLogin(event) {
-  event.preventDefault();
+loginForm.addEventListener("submit", validation);
 
-  if (validateEmail(email.value, 0) === true) {
+function validateLogin(submission){
+  submission.preventDefault();
+  if(everything is true){
+   loginUser()
+   }
+
+   if (validateEmail(exampleInputEmail1.value) === true) {
     emailError.style.display = "none";
-  } else {
+  }else {
     emailError.style.display = "flex";
   }
-
-  if (checkLength(password.value, 9) === true) {
+  
+  if (checkLength(exampleInputPassword1.value,9) === true) {
     passwordError.style.display = "none";
-  } else {
+  }else {
     passwordError.style.display = "flex";
   }
-
-  console.log("hello");
 }
-
-loginForm.addEventListener("submit", validateLogin);
-
-const userToLogin = {
-  email: "kardo_kiyani@stud.noroff.no",
-  password: "kardokiyani1998",
-};
-
-const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
-
-loginUser(loginUrl, userToLogin);

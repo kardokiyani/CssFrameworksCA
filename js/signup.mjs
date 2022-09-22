@@ -1,10 +1,18 @@
 //REGISTER USER
 
+import { validation } from "./validation.mjs";
+
 const API_BASE_URL = "https://nf-api.onrender.com";
 
 const signupForm = document.querySelector("#form");
 
-signupForm.addEventListener("submit", validateLogin);
+const text = document.querySelector("#form3Example1c");
+
+const email = document.querySelector("#form3Example3c");
+
+const password = document.querySelector("#form3Example4c");
+
+const newPassword = document.querySelector("#form3Example4cd");
 
 /**
  * API call that registers the user
@@ -17,11 +25,16 @@ signupForm.addEventListener("submit", validateLogin);
 async function registerUser(url, userData) {
   try {
     const postData = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(userData),
+      body: JSON.stringify({
+        text: text.value,
+        email: email.value,
+        password: password.value,
+        newPassword: newPassword.value,
+      }),
     };
     const response = await fetch(url, postData);
     console.log(response);
@@ -32,6 +45,8 @@ async function registerUser(url, userData) {
   }
 }
 
+signupForm.addEventListener("submit", validation);
+
 const userToRegister = {
   name: "kardo_kiyani",
   email: "kardo_kiyani@stud.noroff.no",
@@ -41,4 +56,3 @@ const userToRegister = {
 const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
 
 registerUser(registerUrl, userToRegister);
-
