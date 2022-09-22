@@ -2,11 +2,11 @@
 
 const API_BASE_URL = "https://nf-api.onrender.com";
 
-const loginForm = document.querySelector("#formId");
+const loginForm = document.querySelector("#form");
 
-const email = document.querySelector("#current-email");
+const email = document.querySelector("#exampleInputEmail1");
 
-const password = document.querySelector("#current-password");
+const password = document.querySelector("#exampleInputPassword1");
 
 async function loginUser(url, userData) {
   try {
@@ -15,7 +15,7 @@ async function loginUser(url, userData) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: { email: emailInput.value, password: passwordInput.value },
+      body: { email: email.value, password: password.value },
     };
     const response = await fetch(url, postData);
     console.log(response);
