@@ -21679,6 +21679,10 @@ nav ul {
   text-decoration: underline;
 }
 
+.form-error {
+  color: #dc3545;
+}
+
 .img-style {
   width: 500px;
 }

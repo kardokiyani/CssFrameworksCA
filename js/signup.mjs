@@ -1,18 +1,28 @@
 //REGISTER USER
 
-import { validation } from "./validation.mjs";
+import {validateEmail, checkTheLength, registerUser} from "./validation.mjs"
 
 const API_BASE_URL = "https://nf-api.onrender.com";
 
-const signupForm = document.querySelector("#form");
+const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
+
+const form = document.querySelector("#form");
 
 const text = document.querySelector("#form3Example1c");
 
+const textError = document.querySelector("#textError");
+
 const email = document.querySelector("#form3Example3c");
+
+const emailError = document.querySelector("#emailError");
 
 const password = document.querySelector("#form3Example4c");
 
+const passwordError = document.querySelector("#passwordError");
+
 const newPassword = document.querySelector("#form3Example4cd");
+
+const newPasswordError = document.querySelector("#newPasswordError");
 
 /**
  * API call that registers the user
@@ -22,7 +32,7 @@ const newPassword = document.querySelector("#form3Example4cd");
  * registerUser(registerUrl, userToRegister);
  * ```
  */
-async function registerUser(url, userData) {
+async function registerTheUser(url, userData) {
   try {
     const postData = {
       method: "POST",
@@ -30,29 +40,27 @@ async function registerUser(url, userData) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        text: text.value,
+        name: text.value,
         email: email.value,
         password: password.value,
         newPassword: newPassword.value,
       }),
     };
     const response = await fetch(url, postData);
-    console.log(response);
+    // console.log(response);
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
   } catch (error) {
     console.log(error);
   }
 }
 
-signupForm.addEventListener("submit", validation);
+form.addEventListener("submit", registerTheUser(registerUrl));
 
-const userToRegister = {
-  name: "kardo_kiyani",
-  email: "kardo_kiyani@stud.noroff.no",
-  password: "kardokiyani1998",
-};
+// const userToRegister = {
+ // name: "kardo_kiyani",
+ // email: "kardo_kiyani@stud.noroff.no",
+ // password: "kardokiyani1998",
+// };
 
-const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
-
-registerUser(registerUrl, userToRegister);
+// registerTheUser(registerUrl);

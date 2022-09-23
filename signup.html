@@ -41,7 +41,7 @@
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <input
-                              text="text"
+                              name="text"
                               type="text"
                               autocomplete="off"
                               id="form3Example1c"
@@ -50,6 +50,7 @@
                             <label class="form-label" for="form3Example1c"
                               >Your Name</label
                             >
+                            <div class="form-error" id="textError">Please enter your name</div>
                           </div>
                         </div>
 
@@ -66,6 +67,7 @@
                             <label class="form-label" for="form3Example3c"
                               >Your Email</label
                             >
+                            <div class="form-error" id="mailError">Please enter your mail</div>
                           </div>
                         </div>
 
@@ -82,6 +84,7 @@
                             <label class="form-label" for="form3Example4c"
                               >Password</label
                             >
+                            <div class="form-error" id="passwordError">Please enter your password</div>
                           </div>
                         </div>
 
@@ -90,7 +93,7 @@
                           <div class="form-outline flex-fill mb-0">
                             <input
                               newPassword="newPassword"
-                              type="newPassword"
+                              type="password"
                               autocomplete="off"
                               id="form3Example4cd"
                               class="form-control"
@@ -98,6 +101,7 @@
                             <label class="form-label" for="form3Example4cd"
                               >Repeat your password</label
                             >
+                            <div class="form-error" id="newPasswordError">Please repeat your password</div>
                           </div>
                         </div>
 
@@ -119,7 +123,7 @@
                         <div
                           class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
                         >
-                          <button type="button" class="btn btn-primary btn-lg">
+                          <button type="submit" class="btn btn-primary btn-lg">
                             Register
                           </button>
                         </div>
@@ -148,5 +152,6 @@
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ></script>
     <script type="module" src="js/signup.mjs"></script>
+    <script type="module" src="js/validation.mjs"></script>
   </body>
 </html>

@@ -10920,4 +10920,8 @@ nav ul {
   text-decoration: underline;
 }
 
+.form-error {
+  color: #dc3545;
+}
+
 /*# sourceMappingURL=styles.css.map */
