@@ -1,3 +1,21 @@
+const form = document.querySelector("#form");
+
+const text = document.querySelector("#form3Example1c");
+
+const textError = document.querySelector("#textError");
+
+const email = document.querySelector("#form3Example3c");
+
+const emailError = document.querySelector("#emailError");
+
+const password = document.querySelector("#form3Example4c");
+
+const passwordError = document.querySelector("#passwordError");
+
+const newPassword = document.querySelector("#form3Example4cd");
+
+const newPasswordError = document.querySelector("#newPasswordError");
+
 export function registerUser() {
   submission.preventDefault();
 
