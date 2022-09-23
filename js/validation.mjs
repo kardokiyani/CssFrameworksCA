@@ -1,3 +1,5 @@
+// VALIDATION
+
 const form = document.querySelector("#form");
 
 const text = document.querySelector("#form3Example1c");
@@ -16,7 +18,7 @@ const newPassword = document.querySelector("#form3Example4cd");
 
 const newPasswordError = document.querySelector("#newPasswordError");
 
-export function registerUser() {
+export function registerUser(submission) {
   submission.preventDefault();
 
   if (checkTheLength(text.value, 5) === true) {
@@ -25,7 +27,7 @@ export function registerUser() {
     textError.style.display = "block";
   }
 
-  if (checkTheLength(email.value, 5) === true) {
+  if (checkTheLength(email.value) === true) {
     emailError.style.display = "none";
   } else {
     emailError.style.display = "block";
@@ -45,6 +47,8 @@ export function registerUser() {
 
   console.log("hello");
 }
+
+form.addEventListener("submit", registerUser);
 
 export function checkTheLength(value, len) {
   if (value.trim().length > len) {

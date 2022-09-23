@@ -21708,4 +21708,9 @@ nav ul {
   margin: 50px;
 }
 
+.form-error {
+  display: none;
+  color: #dc3545;
+}
+
 /*# sourceMappingURL=signup.css.map */
