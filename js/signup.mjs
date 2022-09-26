@@ -17,24 +17,22 @@ const newPassword = document.querySelector("#form3Example4cd");
 const regUser = (e) => {
   e.preventDefault();
 
+  const usernameVal = text.value.trim();
   const emailVal = email.value.trim();
-  const textVal = text.value.trim();
   const pwdVal = password.value.trim();
-  const newPwdVal = newPassword.value.trim();
 
-  registerTheUser(textVal, emailVal, pwdVal, newPwdVal);
+  registerTheUser(usernameVal, emailVal, pwdVal);
 };
 
-async function registerTheUser(text, email, password, newPassword) {
+async function registerTheUser(username, email, password) {
   const url = API_BASE_URL + "/api/v1/social/auth/register";
 
   const options = {
     method: "POST",
     body: JSON.stringify({
-      name: text,
+      name: username,
       email: email,
       password: password,
-      newPassword: newPassword,
     }),
     headers: {
       "Content-Type": "application/json",

@@ -36,21 +36,31 @@
                         Sign up
                       </p>
 
-                      <form id="form" class="mx-1 mx-md-4">
+                      <form
+                        action="https://nf-api.onrender.com"
+                        method="post"
+                        id="register"
+                        class="mx-1 mx-md-4"
+                      >
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <input
-                              name="text"
+                              name="username"
                               type="text"
                               autocomplete="off"
                               id="form3Example1c"
                               class="form-control"
+                              pattern="[\w_]+"
+                              title="Your username must match the pattern"
+                              minlength="5"
                             />
                             <label class="form-label" for="form3Example1c"
                               >Your Name</label
                             >
-                            <div class="form-error" id="textError">Please enter your name</div>
+                            <div class="form-error" id="textError">
+                              Please enter your name
+                            </div>
                           </div>
                         </div>
 
@@ -63,11 +73,16 @@
                               autocomplete="off"
                               id="form3Example3c"
                               class="form-control"
+                              pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+                              title="Your email must match the pattern"
+                              required
                             />
                             <label class="form-label" for="form3Example3c"
                               >Your Email</label
                             >
-                            <div class="form-error" id="mailError">Please enter your mail</div>
+                            <div class="form-error" id="mailError">
+                              Please enter your mail
+                            </div>
                           </div>
                         </div>
 
@@ -80,11 +95,15 @@
                               autocomplete="off"
                               id="form3Example4c"
                               class="form-control"
+                              title="Your password must match the pattern"
+                              minlength="7"
                             />
                             <label class="form-label" for="form3Example4c"
                               >Password</label
                             >
-                            <div class="form-error" id="passwordError">Please enter your password</div>
+                            <div class="form-error" id="passwordError">
+                              Please enter your password
+                            </div>
                           </div>
                         </div>
 
@@ -97,11 +116,15 @@
                               autocomplete="off"
                               id="form3Example4cd"
                               class="form-control"
+                              title="Your password must match the pattern"
+                              minlength="7"
                             />
                             <label class="form-label" for="form3Example4cd"
                               >Repeat your password</label
                             >
-                            <div class="form-error" id="newPasswordError">Please repeat your password</div>
+                            <div class="form-error" id="newPasswordError">
+                              Please repeat your password
+                            </div>
                           </div>
                         </div>
 
