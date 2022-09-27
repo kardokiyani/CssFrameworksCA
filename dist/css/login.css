@@ -21696,4 +21696,9 @@ nav ul {
   text-decoration: underline;
 }
 
+.formInputError {
+  display: none;
+  color: #dc3545;
+}
+
 /*# sourceMappingURL=login.css.map */

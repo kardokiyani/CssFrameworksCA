@@ -1,28 +1,31 @@
 //REGISTER USER
 
-// import { validateForm } from './validation.mjs';
+import {
+  validateUsername,
+  validateEmail,
+  passwordValidation,
+  newPasswordValidation,
+} from "./validation.mjs";
 
 const API_BASE_URL = "https://nf-api.onrender.com";
 
-const form = document.querySelector("#form");
+const form = document.querySelector("#register");
 
-const text = document.querySelector("#form3Example1c");
+const username = document.querySelector("#username");
 
-const email = document.querySelector("#form3Example3c");
+const userNameError = document.querySelector("#userNameError");
 
-const password = document.querySelector("#form3Example4c");
+const emailAddress = document.querySelector("#emailAddress");
 
-const newPassword = document.querySelector("#form3Example4cd");
+const emailError = document.querySelector("#emailError");
 
-const regUser = (e) => {
-  e.preventDefault();
+const password = document.querySelector("#password");
 
-  const usernameVal = text.value.trim();
-  const emailVal = email.value.trim();
-  const pwdVal = password.value.trim();
+const passwordError = document.querySelector("#passwordError");
 
-  registerTheUser(usernameVal, emailVal, pwdVal);
-};
+const newPassword = document.querySelector("#newPassword");
+
+const newPasswordError = document.querySelector("#newPasswordError");
 
 async function registerTheUser(username, email, password) {
   const url = API_BASE_URL + "/api/v1/social/auth/register";
@@ -41,15 +44,52 @@ async function registerTheUser(username, email, password) {
 
   try {
     const response = await fetch(url, options);
-    // console.log(response);
+    console.log(response);
     const json = await response.json();
-    // console.log(json);
-    //if (json.error) {
-    // validateForm();
-    // }
+    console.log(json);
+    if (json.error) {
+      validateForm();
+    }
   } catch (error) {
     console.log(error);
   }
 }
 
-form.addEventListener("submit", regUser);
+export function registerSuccess(event) {
+  event.preventDefault();
+
+  if (validateUsername(username.value)) {
+    userNameError.style.display = "none";
+  } else {
+    userNameError.style.display = "block";
+  }
+
+  if (validateEmail(emailAddress.value)) {
+    emailError.style.display = "none";
+  } else {
+    emailError.style.display = "block";
+  }
+
+  if (passwordValidation(password.value)) {
+    passwordError.style.display = "none";
+  } else {
+    passwordError.style.display = "block";
+  }
+
+  if (newPasswordValidation(newPassword.value)) {
+    newPasswordError.style.display = "none";
+  } else {
+    newPasswordError.style.display = "block";
+  }
+
+  if (
+    validateUsername(username.value) &&
+    validateEmail(emailAddress.value) &&
+    passwordValidation(password.value) &&
+    newPasswordValidation(newPassword.value)
+  ) {
+    registerTheUser(username.value, emailAddress.value, password.value);
+  }
+}
+
+form.addEventListener("submit", registerSuccess);

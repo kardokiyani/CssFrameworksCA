@@ -18,3 +18,8 @@
   color: $green;
   text-decoration: underline;
 }
+
+.formInputError {
+  display: none;
+  color: $red;
+}

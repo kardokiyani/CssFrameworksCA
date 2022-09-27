@@ -1,14 +1,18 @@
 // LOGIN USER
 
-import {validateEmail, checkLength} from "./validation.mjs"
+import { validateEmail, passwordValidation } from "./validation.mjs";
 
 const API_BASE_URL = "https://nf-api.onrender.com";
 
-const loginForm = document.querySelector("#form");
+const form = document.querySelector("#form");
 
-const email = document.querySelector("#exampleInputEmail1");
+const email = document.querySelector("#email");
 
-const password = document.querySelector("#exampleInputPassword1");
+const emailError = document.querySelector("#emailError");
+
+const password = document.querySelector("#password");
+
+const passwordError = document.querySelector("#passwordError");
 
 async function loginUser(url) {
   try {
@@ -25,29 +29,31 @@ async function loginUser(url) {
     console.log(json);
     const accessToken = json.accessToken;
     localStorage.setItem("accessToken", accessToken);
+    if (json.error) {
+      validateForm();
+    }
   } catch (error) {
     console.log(error);
   }
   const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
 }
 
-loginForm.addEventListener("submit", validation);
-
-function validateLogin(submission){
+function validateLogin(submission) {
   submission.preventDefault();
-  if(everything is true){
-   loginUser()
-   }
-
-   if (validateEmail(exampleInputEmail1.value) === true) {
+  if (validateEmail(email.value) === true) {
     emailError.style.display = "none";
-  }else {
-    emailError.style.display = "flex";
+  } else {
+    emailError.style.display = "block";
   }
-  
-  if (checkLength(exampleInputPassword1.value,9) === true) {
+
+  if (passwordValidation(password.value) === true) {
     passwordError.style.display = "none";
-  }else {
-    passwordError.style.display = "flex";
+  } else {
+    passwordError.style.display = "block";
+  }
+  if (validateEmail(email.value) && passwordValidation(password.value)) {
+    loginUser(email.value, password.value);
   }
 }
+
+form.addEventListener("submit", validateLogin);
