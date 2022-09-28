@@ -14,7 +14,7 @@ const password = document.querySelector("#password");
 
 const passwordError = document.querySelector("#passwordError");
 
-async function loginUser(url) {
+async function loginUser() {
   const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
   try {
     const postData = {
@@ -22,9 +22,9 @@ async function loginUser(url) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: email, password: password }),
+      body: JSON.stringify({ email: email.value, password: password.value }),
     };
-    const response = await fetch(url, postData);
+    const response = await fetch(loginUrl, postData);
     console.log(response);
     const json = await response.json();
     console.log(json);
@@ -52,7 +52,7 @@ function validateLogin(submission) {
     passwordError.style.display = "block";
   }
   if (validateEmail(email.value) && passwordValidation(password.value)) {
-    loginUser(url);
+    loginUser();
   }
 }
 
