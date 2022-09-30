@@ -22,8 +22,13 @@ async function getPostContent() {
     console.log(results);
 
     for (let i = 0; i < results.length; i++) {
-      content.innerHTML += `<a href="index.html.html?id=${results[i].id}">
-      <div>${results[i].posts}</div>
+      const post = results[i];
+      content.innerHTML += `<a href="index.html?id=${post.id}">
+      <div class="cardStyle">
+      <h5 class="card-title">${results[i].title}</h5>
+      <p class="card-text created">${results[i].created}</p>
+      <p class="card-text id">${results[i].id}</p>
+      </div>
       </a>`;
     }
   } catch (error) {

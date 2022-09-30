@@ -21683,6 +21683,14 @@ nav ul {
   color: #dc3545;
 }
 
+.cardStyle {
+  display: flex;
+  justify-content: center;
+  background-color: #0a3641;
+  color: #fff;
+  padding: 10px;
+}
+
 .formStyle {
   margin: 20px;
 }

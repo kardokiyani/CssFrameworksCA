@@ -168,3 +168,11 @@ nav ul {
 .form-error {
   color: $red;
 }
+
+.cardStyle {
+ display: flex;
+ justify-content: center;
+ background-color: $blue;
+ color: #fff;
+ padding: 10px;
+}
