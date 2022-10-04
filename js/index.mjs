@@ -1,3 +1,5 @@
+import { createPost } from "./api/posts/create.mjs";
+
 const API_BASE_URL = "https://nf-api.onrender.com";
 
 const content = document.querySelector(".postContent");
@@ -37,3 +39,8 @@ async function getPostContent() {
 }
 
 getPostContent();
+
+createPost({
+  title: "Example Post",
+  body: "Also an example",
+});
