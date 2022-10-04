@@ -6,7 +6,7 @@ const action = "/posts";
 const method = "post";
 
 export async function createPost(postData) {
-  const createPostsUrl = API_BASE_URL + 'social/posts';
+  const createPostsUrl = API_BASE_URL + "social/posts";
 
   const response = await authFetch(createPostsUrl, {
     method,
