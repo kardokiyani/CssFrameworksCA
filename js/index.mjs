@@ -1,5 +1,9 @@
 import { createPost } from "./api/posts/create.mjs";
 
+import { updatePost } from "./api/posts/update.mjs";
+
+import * as post from "./api/posts/index.mjs";
+
 const API_BASE_URL = "https://nf-api.onrender.com";
 
 const content = document.querySelector(".postContent");
@@ -44,3 +48,19 @@ createPost({
   title: "Example Post",
   body: "Also an example",
 });
+
+updatePost({
+id: 644,
+title: "Example Post UPDATED",
+body: "Also an example UPDATED",
+});
+
+// removePost(644);
+
+// post.createPost();
+// post.updatePost();
+// post.removePost();
+// post.getPost();
+// post.getPosts().then(console.log);
+
+// post.getPosts(640).then(console.log);
