@@ -49,11 +49,11 @@ createPost({
   body: "Also an example",
 });
 
-updatePost({
-id: 644,
-title: "Example Post UPDATED",
-body: "Also an example UPDATED",
-});
+// updatePost({
+// id: 644,
+// title: "Example Post UPDATED",
+// body: "Also an example UPDATED",
+// });
 
 // removePost(644);
 

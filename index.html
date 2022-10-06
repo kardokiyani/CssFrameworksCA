@@ -261,6 +261,30 @@
       <div class="postForm">
       <button a href="" class="postFormButton">SUBMIT</a></button>
       </div>
+      <form id="createPost">
+        <div class="form-group mb-3">
+          <label for="">Title</label>
+          <input class="form-control" type="text" name="title" required>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="">Body</label>
+          <textarea class="form-control" name="body" required></textarea>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="">Tags</label>
+          <textarea class="form-control" type="text" name="tags"></textarea>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="">Media</label>
+          <textarea class="form-control" type="url" name="media"></textarea>
+        </div>
+
+        <button class="btn btn-success">Create Post</button>
+
+      </form>
       </form>
     </div>
     <div class="postContent"></div>
