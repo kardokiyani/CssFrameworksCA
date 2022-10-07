@@ -10944,6 +10944,13 @@ nav ul {
 
 .btn-success {
   width: 300px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+}
+
+.labelStyle {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */
