@@ -1,4 +1,4 @@
-// CREATE
+// CREATE POST
 
 import { API_BASE_URL } from "./api/constants.mjs";
 

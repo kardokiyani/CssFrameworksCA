@@ -2,7 +2,7 @@
 
 import { createPost } from "./createPost.mjs";
 
-import { updatePost } from "./api/posts/update.mjs";
+import { updatePost } from "./updatePost.mjs";
 
 import * as post from "./api/posts/index.mjs";
 
