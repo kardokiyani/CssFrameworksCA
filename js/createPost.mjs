@@ -10,8 +10,6 @@ const body = document.querySelector("#bodyId");
 
 const tags = document.querySelector("#tagsId");
 
-const media = document.querySelector("#mediaId");
-
 const action = "/posts";
 const method = "post";
 
@@ -24,13 +22,14 @@ export async function createPost() {
         title: title.value,
         body: body.value,
         tags: tags.value,
-        media: media.value,
       }),
     });
     console.log(response);
     const json = await response.json();
     console.log(json);
-    return await json();
+    const accessToken = json.accessToken;
+    localStorage.getItem("accessToken", accessToken);
+    return await json;
   } catch (error) {
     console.error(error);
   }
@@ -54,18 +53,11 @@ function validateCreateForm(submission) {
   } else {
     tagsError.style.display = "block";
   }
-  if (validateMedia(media.value) === true) {
-    mediaError.style.display = "none";
-  } else {
-    mediaError.style.display = "block";
-  }
   if (
     validateTitle(title.value) &&
     validateBody(body.value) &&
-    validateTags(tags.value) &&
-    validateMedia(media.value)
+    validateTags(tags.value)
   ) {
-    
   }
 }
 
