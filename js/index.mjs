@@ -4,7 +4,7 @@ import { createPost } from "./createPost.mjs";
 
 import { updatePost } from "./updatePost.mjs";
 
-import * as post from "./api/posts/index.mjs";
+// import * as post from "./api/posts/index.mjs";
 
 const API_BASE_URL = "https://nf-api.onrender.com";
 
