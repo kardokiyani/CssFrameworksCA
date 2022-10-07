@@ -1,3 +1,5 @@
+// AUTH FETCH
+
 import { load } from "./storage/index.mjs";
 
 export function headers() {

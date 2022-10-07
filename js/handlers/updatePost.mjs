@@ -1,3 +1,5 @@
+// HANDLERS -> UPDATE POST
+
 import { updatePost } from "../api/posts/index.mjs";
 
 export function setLoginFormListener() {

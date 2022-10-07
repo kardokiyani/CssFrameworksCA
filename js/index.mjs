@@ -1,4 +1,6 @@
-import { createPost } from "./api/posts/create.mjs";
+// JS -> INDEX
+
+import { createPost } from "./createPost.mjs";
 
 import { updatePost } from "./api/posts/update.mjs";
 
@@ -45,8 +47,8 @@ async function getPostContent() {
 getPostContent();
 
 createPost({
-  title: "Example Post",
-  body: "Also an example",
+  title: "Just a example post",
+  body: "Also an example post",
 });
 
 // updatePost({

@@ -264,25 +264,25 @@
       <form id="createPost">
         <div class="form-group mb-3">
           <label for="">Title</label>
-          <input class="form-control" type="text" name="title" required>
+          <input class="form-control" type="text" name="title" id="titleId" required>
         </div>
 
         <div class="form-group mb-3">
           <label for="">Body</label>
-          <textarea class="form-control" name="body" required></textarea>
+          <textarea class="form-control" name="body" id="bodyId" required></textarea>
         </div>
 
         <div class="form-group mb-3">
           <label for="">Tags</label>
-          <textarea class="form-control" type="text" name="tags"></textarea>
+          <textarea class="form-control" type="text" name="tags" id="tagsId"></textarea>
         </div>
 
         <div class="form-group mb-3">
           <label for="">Media</label>
-          <textarea class="form-control" type="url" name="media"></textarea>
+          <textarea class="form-control" type="url" name="media" id="mediaId"></textarea>
         </div>
 
-        <button class="btn btn-success">Create Post</button>
+        <input class="btn btn-success" type="submit" value="Create Post">
 
       </form>
       </form>
@@ -295,5 +295,6 @@
       src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     ></script>
     <script type="module" src="js/index.mjs"></script>
+    <script type="module" src="js/createPost.mjs"></script>
   </body>
 </html>
