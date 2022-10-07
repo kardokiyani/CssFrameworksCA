@@ -13,22 +13,21 @@ const tags = document.querySelector("#tagsId");
 const action = "/posts";
 const method = "post";
 
-export async function createPost() {
+export async function createPost(parameter) {
   const createPostsUrl = API_BASE_URL + "social/posts";
+  const accessToken = localStorage.getItem("accessToken");
   try {
     const response = await authFetch(createPostsUrl, {
       method,
-      body: JSON.stringify({
-        title: title.value,
-        body: body.value,
-        tags: tags.value,
-      }),
+      headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify(parameter),
     });
     console.log(response);
     const json = await response.json();
     console.log(json);
-    const accessToken = json.accessToken;
-    localStorage.getItem("accessToken", accessToken);
     return await json;
   } catch (error) {
     console.error(error);

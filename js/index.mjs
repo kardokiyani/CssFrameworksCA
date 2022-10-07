@@ -46,10 +46,11 @@ async function getPostContent() {
 
 getPostContent();
 
-createPost({
-  title: "Just a example post",
-  body: "Also an example post",
-});
+//createPost({
+//title: "Hello world! How are you?",
+//body: "This is just a example post, don`t worry!",
+//tags: "Hello, world, post, example",
+//});
 
 // updatePost({
 // id: 644,

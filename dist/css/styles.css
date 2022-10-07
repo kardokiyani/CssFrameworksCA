@@ -10891,6 +10891,10 @@ nav ul {
   width: 500px;
 }
 
+.form-group {
+  width: 500px;
+}
+
 .commentStyle {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -10930,6 +10934,16 @@ nav ul {
   background-color: #0a3641;
   color: #fff;
   padding: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.btn-success {
+  width: 300px;
 }
 
 /*# sourceMappingURL=styles.css.map */
