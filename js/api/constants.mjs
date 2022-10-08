@@ -2,6 +2,8 @@
 
 export const API_BASE_URL = `https://nf-api.onrender.com/api/v1/`;
 
+// export const updateUrl = API_BASE_URL + 'social/posts' + '?id=' ID;
+
 // export const API_BASE = `/api/v1`;
 
 // export const API_SOCIAL_BASE = `/social`;

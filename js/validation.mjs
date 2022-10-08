@@ -19,3 +19,21 @@ export function passwordValidation(password) {
 export function newPasswordValidation(newPassword) {
   return newPassword.trim().length >= 8;
 }
+
+export function validateTitle(title) {
+  const pattern = /^[\w]+$/;
+  const patternMatches = pattern.test(title.trim());
+  return patternMatches;
+}
+
+export function validateBody(body) {
+  const pattern = /^[\w]+$/;
+  const patternMatches = pattern.test(body.trim());
+  return patternMatches;
+}
+
+export function validateTags(tags) {
+  const pattern = /^[\w]+$/;
+  const patternMatches = pattern.test(tags.trim());
+  return patternMatches;
+}

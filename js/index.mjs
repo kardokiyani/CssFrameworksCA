@@ -8,6 +8,8 @@ import { updatePost } from "./updatePost.mjs";
 
 const API_BASE_URL = "https://nf-api.onrender.com";
 
+// const updateUrl = "API_BASE_URL + 'social/posts' + '?id=;" ID;
+
 const content = document.querySelector(".postContent");
 
 async function getPostContent() {
@@ -46,17 +48,17 @@ async function getPostContent() {
 
 getPostContent();
 
-//createPost({
-//title: "Hello world! How are you?",
-//body: "This is just a example post, don`t worry!",
-//tags: "Hello, world, post, example",
-//});
+createPost({
+  title: "Hello world! Im just chilling?",
+  body: "This is just a example post!",
+  tags: "Hello, world, chilling",
+});
 
-// updatePost({
-// id: 644,
-// title: "Example Post UPDATED",
-// body: "Also an example UPDATED",
-// });
+updatePost({
+  id: 644,
+  title: "Example Post UPDATED",
+  body: "Also an example UPDATED",
+});
 
 // removePost(644);
 

@@ -10953,4 +10953,9 @@ nav ul {
   font-size: 20px;
 }
 
+.form-error {
+  display: none;
+  color: #dc3545;
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -4,7 +4,9 @@ import { API_BASE_URL } from "./api/constants.mjs";
 
 import { authFetch } from "./api/authFetch.mjs";
 
-const action = "/posts";
+// import { updateUrl } from "./api/constants.mjs";
+
+const action = "posts/";
 const method = "put";
 
 export async function updatePost(postData) {
