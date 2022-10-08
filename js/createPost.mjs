@@ -4,6 +4,8 @@ import { API_BASE_URL } from "./api/constants.mjs";
 
 import { authFetch } from "./api/authFetch.mjs";
 
+const form = document.querySelector("#form");
+
 const title = document.querySelector("#titleId");
 
 const body = document.querySelector("#bodyId");
@@ -13,17 +15,21 @@ const tags = document.querySelector("#tagsId");
 const action = "/posts";
 const method = "post";
 
-export async function createPost(parameter) {
+export async function createPost(title, body, tags) {
   const createPostsUrl = API_BASE_URL + "social/posts";
   const accessToken = localStorage.getItem("accessToken");
   try {
     const response = await authFetch(createPostsUrl, {
       method,
       headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
       },
-      body: JSON.stringify(parameter),
+      body: JSON.stringify({
+        name: title,
+        name: body,
+        name: tags,
+      }),
     });
     console.log(response);
     const json = await response.json();
@@ -57,8 +63,11 @@ function validateCreateForm(submission) {
     validateBody(body.value) &&
     validateTags(tags.value)
   ) {
+    createPost(title.value, body.value, tags.value);
   }
 }
+
+form.addEventListener("submit", validateCreateForm);
 
 export function createListener() {
   const form = document.querySelector("#createPost");
