@@ -8,8 +8,6 @@ import { updatePost } from "./updatePost.mjs";
 
 const API_BASE_URL = "https://nf-api.onrender.com";
 
-// const updateUrl = "API_BASE_URL + 'social/posts' + '?id=;" ID;
-
 const content = document.querySelector(".postContent");
 
 async function getPostContent() {
@@ -33,7 +31,7 @@ async function getPostContent() {
 
     for (let i = 0; i < results.length; i++) {
       const post = results[i];
-      content.innerHTML += `<a href="index.html?id=${post.id}">
+      content.innerHTML += `<a class="card-content-action" href="post-specific.html?id=${results[i].id}">
       <div class="cardStyle">
       <h5 class="card-title">${results[i].title}</h5>
       <p class="card-text created">${results[i].created}</p>
