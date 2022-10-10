@@ -6,7 +6,7 @@ import { authFetch } from "./api/authFetch.mjs";
 
 import { updateUrl } from "./api/constants.mjs";
 
-import { validateTitle, validateBody, validateTags } from "./validation.mjs";
+const form = document.querySelector("#editPost");
 
 const title = document.querySelector("#titleId");
 
@@ -14,11 +14,6 @@ const body = document.querySelector("#bodyId");
 
 const tags = document.querySelector("#tagsId");
 
-const titleError = document.querySelector("#titleError");
-
-const bodyError = document.querySelector("#bodyError");
-
-const tagsError = document.querySelector("#tagsError");
 
 const action = "social/posts/";
 const method = "put";
@@ -49,31 +44,7 @@ export async function updatePost(postData) {
   }
 }
 
-function validatePost(e) {
-  e.preventDefault();
-  if (validateTitle(title.value)) {
-    titleError.style.display = "none";
-  } else {
-    titleError.style.display = "block";
-  }
-  if (validateBody(body.value)) {
-    bodyError.style.display = "none";
-  } else {
-    bodyError.style.display = "block";
-  }
-  if (validateTags(tags.value)) {
-    tagsError.style.display = "none";
-  } else {
-    tagsError.style.display = "block";
-  }
-  return updatePost(title.value, body.value, tags.value);
-}
-
-form.addEventListener("submit", validatePost);
-
 export async function setUpdateFormListener() {
-  const form = document.querySelector("#editPost");
-
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
 

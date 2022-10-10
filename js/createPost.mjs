@@ -68,8 +68,3 @@ function validatePost(e) {
 
 form.addEventListener("submit", validatePost);
 
-const path = location.pathname;
-
-if (path === "./index.html") {
-  createListener();
-}

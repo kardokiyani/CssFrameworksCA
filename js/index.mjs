@@ -46,17 +46,17 @@ async function getPostContent() {
 
 getPostContent();
 
-createPost({
-  title: "Hello world! Im just chilling?",
-  body: "This is just a example post!",
-  tags: "Hello, world, chilling",
-});
+//createPost({
+ // title: "Hello world! Im just chilling?",
+ // body: "This is just a example post!",
+ // tags: "Hello, world, chilling",
+//});
 
-updatePost({
-  id: 644,
-  title: "Example Post UPDATED",
-  body: "Also an example UPDATED",
-});
+//updatePost({
+  //id: 644,
+  //title: "Example Post UPDATED",
+  //body: "Also an example UPDATED",
+//});
 
 // removePost(644);
 
