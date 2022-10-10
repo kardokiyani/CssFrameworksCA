@@ -8,8 +8,6 @@ import { updateUrl } from "./api/constants.mjs";
 
 import { validateTitle, validateBody, validateTags } from "./validation.mjs";
 
-const form = document.querySelector("#editPost");
-
 const title = document.querySelector("#titleId");
 
 const body = document.querySelector("#bodyId");
@@ -74,7 +72,7 @@ function validatePost(e) {
 form.addEventListener("submit", validatePost);
 
 export async function setUpdateFormListener() {
-  const form = document.querySelector("editPost");
+  const form = document.querySelector("#editPost");
 
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
