@@ -6,7 +6,7 @@ import { authFetch } from "./api/authFetch.mjs";
 
 import { updateUrl } from "./api/constants.mjs";
 
-const form = document.querySelector("#editPost");
+const form = document.querySelector("#form");
 
 const title = document.querySelector("#titleId");
 
