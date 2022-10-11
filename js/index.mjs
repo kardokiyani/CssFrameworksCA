@@ -29,7 +29,7 @@ async function deleteSocialPost(id) {
     return null;
   }
   if (typeof id === "number") {
-    let apiResponse = await noroffDELETE(API_BASE_URL, id);
+    let apiResponse = await noroffDELETE(API_SOCIAL_POST, id);
     const json = await apiResponse.json();
     console.log(apiResponse.status);
     return {
@@ -58,16 +58,16 @@ async function getPostContent() {
     const results = await response.json();
 
     console.log(results);
-    // Delete post:
-    async function deletePost(id) {
-      if (id) {
-        const result = await deleteSocialPost(id);
-        if (result.statusCode === 200) {
-          refreshPosts();
-        }
-      }
+// Delete post:
+async function deletePost(id) {
+  if (id) {
+    const result = await deleteSocialPost(id);
+    if (result.statusCode === 200) {
+      refreshPosts();
     }
-    window.deletePost = deletePost;
+  }
+}
+window.deletePost = deletePost;
     for (let i = 0; i < results.length; i++) {
       const post = results[i];
       content.innerHTML += `<a class="card-content-action" href="post-specific.html?id=${results[i].id}">
@@ -86,6 +86,8 @@ async function getPostContent() {
 }
 
 getPostContent();
+
+
 
 //createPost({
 // title: "Hello world! Im just chilling?",

@@ -14,7 +14,6 @@ const body = document.querySelector("#bodyId");
 
 const tags = document.querySelector("#tagsId");
 
-
 const action = "social/posts/";
 const method = "PUT";
 
