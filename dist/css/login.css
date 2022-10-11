@@ -21717,6 +21717,10 @@ nav ul {
   color: #dc3545;
 }
 
+.btn-primary {
+  margin: 5px;
+}
+
 .formStyle {
   margin: 20px;
 }

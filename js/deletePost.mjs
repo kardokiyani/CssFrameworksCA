@@ -4,19 +4,35 @@ import { API_BASE_URL } from "../constants.mjs";
 
 import { authFetch } from "../authFetch.mjs";
 
+export { deleteSocialPost };
+
 const action = "/posts";
 const method = "delete";
 
-export async function removePost(id) {
-  if (!id) {
-    throw new Error("Delete requires a postID");
-  }
+// async function noroffDELETE(url, id) {
+//   try {
+//     const request = {
+//       method: "DELETE",
+//       headers: getHeader(),
+//     };
+//     const apiResponse = await fetch(API_BASE_URL + url + id, request);
+//     return apiResponse;
+//   } catch (error) {}
+//   return null;
+// }
 
-  const updatePostsUrl = `${API_BASE_URL}${action}/${id}`;
-
-  const response = await authFetch(updatePostsUrl, {
-    method,
-  });
-
-  return await response.json();
-}
+// async function deleteSocialPost(id) { 
+//   if (!id) {
+//       return null;
+//   }
+//   if (typeof(id) === "number") {
+//       let apiResponse = await noroffDELETE(API_SOCIAL_POST, id);
+//       const json = await apiResponse.json();
+//       console.log(apiResponse.status);
+//       return {
+//           json: json,
+//           statusCode: apiResponse.status
+//       };
+//   }
+//   return null;
+// }

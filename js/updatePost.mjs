@@ -4,7 +4,7 @@
 
 import { authFetch } from "./api/authFetch.mjs";
 
-import { updateUrl } from "./api/constants.mjs";
+import { API_BASE_URL, updateUrl } from "./api/constants.mjs";
 
 const form = document.querySelector("#form");
 
@@ -16,17 +16,17 @@ const tags = document.querySelector("#tagsId");
 
 
 const action = "social/posts/";
-const method = "put";
+const method = "PUT";
 
 // const url = updateUrl + id
 
 export async function updatePost(postData) {
-  const updatePostsUrl = `${updateUrl}${postData.id}`;
+  const updatePostsUrl = `${API_BASE_URL}${updatePostsUrl}/${id}`;
   const accessToken = localStorage.getItem("accessToken");
 
   try {
     const response = await authFetch(updatePostsUrl, {
-      method: method,
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
