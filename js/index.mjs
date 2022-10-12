@@ -1,8 +1,10 @@
 // JS -> INDEX
 
-import { createPost } from "./createPost.mjs";
+// import { createPost } from "./createPost.mjs";
 
-import { updatePost } from "./updatePost.mjs";
+// import { updatePost } from "./updatePost.mjs";
+
+import deletePost from "./deletePost.mjs";
 
 // import { removePost } from "./deletePost.mjs";
 
@@ -32,89 +34,31 @@ async function getPostContent() {
     console.log(results);
 
     for (let i = 0; i < results.length; i++) {
-      const post = results[i];
-      content.innerHTML += `<a class="card-content-action" href="post-specific.html?id=${results[i].id}">
-      <div class="cardStyle">
-      <h5 class="card-title">${results[i].title}</h5>
-      <p class="card-text created">${results[i].created}</p>
-      <p class="card-text id">${results[i].id}</p>
-      </div>
-      </a><button type="button" class="btn btn-primary btn-sm mt-3" onclick="deletePost(${results[i].id})">
-      Delete
+      //const post = results[i]; Hvis du skal ha denne, endre results[i] nedenfor til post
+      content.innerHTML += `
+      <a class="card-content-action" href="post-specific.html?id=${results[i].id}">
+        <div class="cardStyle">
+          <h5 class="card-title">${results[i].title}</h5>
+          <p class="card-text created">${results[i].created}</p>
+          <p class="card-text id">${results[i].id}</p>
+        </div>
+      </a>
+      
+      <button type="button" id="delete" data-delete="${results[i].id}" class="btn btn-primary btn-sm mt-3">
+        Delete
       </button>`;
+
+      const deleteButtons = document.querySelectorAll("#delete");
+      deleteButtons.forEach((button) => {
+        button.addEventListener("click", deletePost);
+      });
     }
   } catch (error) {
     console.error(error);
   }
 }
 
-// async function noroffDELETE(url, id) {
-//   try {
-//     const request = {
-//       method: "DELETE",
-//       headers: getHeader(),
-//     };
-//     const apiResponse = await fetch(API_BASE_URL + url + id, request);
-//     return apiResponse;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// async function deleteSocialPost(id) {
-//   if (!id) {
-//     return null;
-//   }
-//   if (typeof id === "number") {
-//     let apiResponse = await noroffDELETE(API_BASE_URL, id);
-//     const json = await apiResponse.json();
-//     console.log(apiResponse.status);
-//     return {
-//       json: json,
-//       statusCode: apiResponse.status,
-//     };
-//   }
-//   return null;
-// }
-
-// // Delete post:
-// async function deletePost(id) {
-//   if (id) {
-//     const result = await deleteSocialPost(id);
-//     if (result.statusCode === 200) {
-//       refreshPosts();
-//     }
-//   }
-// }
-// window.deletePost = deletePost;
-
-async function deletePost(id) {
-  if (id) {
-    const url = API_BASE_URL + "/api/v1/social/posts/" + id;
-    
-    const token = localStorage.getItem("accessToken");
-
-    const options = {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    try {
-      const response = await fetch(url, options);
-      const json = await response.json();
-
-      location.href = "index.html";
-    } catch (error) {
-      console.log("Error:", error);
-    }
-  }
-}
-
 getPostContent();
-
-
 
 //createPost({
 // title: "Hello world! Im just chilling?",

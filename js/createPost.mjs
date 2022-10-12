@@ -67,4 +67,3 @@ function validatePost(e) {
 }
 
 form.addEventListener("submit", validatePost);
-
