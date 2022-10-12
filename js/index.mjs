@@ -46,7 +46,10 @@ async function getPostContent() {
       
       <button type="button" id="delete" data-delete="${results[i].id}" class="btn btn-primary btn-sm mt-3">
         Delete
-      </button>`;
+      </button>
+      <a href="update_post.html?id="${results[i].id}" class="btn btn-primary btn-sm mt-3">
+        Update Post
+      </a>`;
 
       const deleteButtons = document.querySelectorAll("#delete");
       deleteButtons.forEach((button) => {
