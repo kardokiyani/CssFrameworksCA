@@ -6,6 +6,8 @@ import { authFetch } from "./api/authFetch.mjs";
 
 import { API_BASE_URL, updateUrl } from "./api/constants.mjs";
 
+import { getPost } from "./readPost.mjs";
+
 const form = document.querySelector("#form");
 
 const title = document.querySelector("#titleId");
@@ -65,9 +67,26 @@ export async function setUpdateFormListener() {
       const formData = new FormData(form);
       const post = Object.fromEntries(formData.entries());
       post.id = id;
+      updatePost.onclick = function(){title, body, tags};
 
       // Send it to the API
       updatePost(post);
     });
   }
 }
+
+export async function populateInputFields() {
+  const url = new URL(location.href);
+  const id = url.searchParams.get("id");
+
+  const titleId = document.getElementById("titleId");
+  const bodyId = document.getElementById("bodyId");
+  const tagsId = document.getElementById("tagsId");
+  const post = await getPost(id);
+  console.log(post);
+  titleId.value = post.title;
+  bodyId.value = post.body;
+  tagsId.value = post.tags;
+}
+
+populateInputFields();

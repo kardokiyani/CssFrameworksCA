@@ -1,10 +1,10 @@
 // READ
 
-import { API_BASE_URL } from "../constants.mjs";
+import { API_BASE_URL } from "./api/constants.mjs";
 
-import { authFetch } from "../authFetch.mjs";
+import { authFetch } from "./api/authFetch.mjs";
 
-const action = "/posts";
+const action = "/social/posts";
 
 export async function getPosts() {
   const updatePostUrl = `${API_BASE_URL}${action}`;
