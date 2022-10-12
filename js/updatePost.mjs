@@ -9,7 +9,7 @@ const idInput = document.querySelector("#id");
 
 const params = new URLSearchParams(document.location.search);
 const id = params.get("id");
-if (!id) location.href = "post-specific.html";
+if (!id) location.href = "index.html";
 
 const url = "https://nf-api.onrender.com/api/v1/social/posts/" + id;
 
