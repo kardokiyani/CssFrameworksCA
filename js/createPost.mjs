@@ -24,7 +24,7 @@ const action = "/posts";
 const method = "post";
 
 export async function createPost(title, body, tags) {
-  const createPostsUrl = API_BASE_URL + "social/posts";
+  const createPostsUrl = API_BASE_URL + "/social/posts";
   const accessToken = localStorage.getItem("accessToken");
 
   try {

@@ -48,44 +48,69 @@ async function getPostContent() {
   }
 }
 
-async function noroffDELETE(url, id) {
-  try {
-    const request = {
-      method: "DELETE",
-      headers: getHeader(),
-    };
-    const apiResponse = await fetch(API_BASE_URL + url + id, request);
-    return apiResponse;
-  } catch (error) {}
-  return null;
-}
+// async function noroffDELETE(url, id) {
+//   try {
+//     const request = {
+//       method: "DELETE",
+//       headers: getHeader(),
+//     };
+//     const apiResponse = await fetch(API_BASE_URL + url + id, request);
+//     return apiResponse;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-async function deleteSocialPost(id) {
-  if (!id) {
-    return null;
-  }
-  if (typeof id === "number") {
-    let apiResponse = await noroffDELETE(API_BASE_URL, id);
-    const json = await apiResponse.json();
-    console.log(apiResponse.status);
-    return {
-      json: json,
-      statusCode: apiResponse.status,
-    };
-  }
-  return null;
-}
+// async function deleteSocialPost(id) {
+//   if (!id) {
+//     return null;
+//   }
+//   if (typeof id === "number") {
+//     let apiResponse = await noroffDELETE(API_BASE_URL, id);
+//     const json = await apiResponse.json();
+//     console.log(apiResponse.status);
+//     return {
+//       json: json,
+//       statusCode: apiResponse.status,
+//     };
+//   }
+//   return null;
+// }
 
-// Delete post:
+// // Delete post:
+// async function deletePost(id) {
+//   if (id) {
+//     const result = await deleteSocialPost(id);
+//     if (result.statusCode === 200) {
+//       refreshPosts();
+//     }
+//   }
+// }
+// window.deletePost = deletePost;
+
 async function deletePost(id) {
   if (id) {
-    const result = await deleteSocialPost(id);
-    if (result.statusCode === 200) {
-      refreshPosts();
+    const url = API_BASE_URL + "/api/v1/social/posts/" + id;
+    
+    const token = localStorage.getItem("accessToken");
+
+    const options = {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const json = await response.json();
+
+      location.href = "index.html";
+    } catch (error) {
+      console.log("Error:", error);
     }
   }
 }
-window.deletePost = deletePost;
 
 getPostContent();
 
