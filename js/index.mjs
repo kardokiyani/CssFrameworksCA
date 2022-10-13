@@ -2,13 +2,7 @@
 
 // import { createPost } from "./createPost.mjs";
 
-// import { updatePost } from "./updatePost.mjs";
-
 import deletePost from "./deletePost.mjs";
-
-// import { removePost } from "./deletePost.mjs";
-
-// import * as post from "./api/posts/index.mjs";
 
 const API_BASE_URL = "https://nf-api.onrender.com";
 
@@ -63,24 +57,34 @@ async function getPostContent() {
 
 getPostContent();
 
-//createPost({
-// title: "Hello world! Im just chilling?",
-// body: "This is just a example post!",
-// tags: "Hello, world, chilling",
-//});
+import { displayMessage } from "./ui/displayMessage.mjs";
+import { renderPosts } from "./ui/renderPosts.mjs";
+import { searchPosts } from "./ui/searchPosts.mjs";
 
-//updatePost({
-//id: 644,
-//title: "Example Post UPDATED",
-//body: "Also an example UPDATED",
-//});
+const url = `https://nf-api.onrender.com/api/v1/social/posts`;
 
-// removePost(644);
+async function getPostsInSearch() {
+  const token = localStorage.getItem("accessToken");
 
-// post.createPost();
-// post.updatePost();
-// post.removePost();
-// post.getPost();
-// post.getPosts().then(console.log);
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    const response = await fetch(url, options);
+    const posts = await response.json();
 
-// post.getPosts(640).then(console.log);
+    console.log(posts);
+
+    renderPosts(posts);
+    searchPosts(posts);
+  } catch (error) {
+    console.log(error);
+    displayMessage("error", error, ".posts-container");
+  }
+}
+
+getPostsInSearch();
