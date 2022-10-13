@@ -17,8 +17,8 @@ const url = "https://nf-api.onrender.com/api/v1/social/posts/" + id;
 (async function () {
   const method = "GET";
   try {
-  const response = await authFetch(url, method);
-  const json = await response.json();
+    const response = await authFetch(url, method);
+    const json = await response.json();
 
     //før '=' er inputene du henter med querySelector i toppen her.
     //Etter '=' setter de verdiene til å være det du får fra fetch'en.
