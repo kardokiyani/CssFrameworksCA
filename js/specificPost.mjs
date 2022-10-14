@@ -1,4 +1,5 @@
 import { authFetch } from "./api/authFetch.mjs";
+import deletePost from "./deletePost.mjs";
 
 const params = new URLSearchParams(document.location.search);
 const id = params.get("id");
@@ -20,8 +21,19 @@ const h1 = document.querySelector("h1");
     container.innerHTML = `
         <p>${json.body}</p>
         <p>${json.tags}</p>
-    `;
+
+        <button type="button" id="delete" data-delete="${json.id}" class="btn btn-primary btn-sm mt-3">
+        Delete
+      </button>
+
+      <a href="update_post.html?id=${json.id}" class="btn btn-primary btn-sm mt-3">
+        Update Post
+      </a>
+      `;
+
+    const deleteButton = document.querySelector("#delete");
+    deleteButton.addEventListener("click", deletePost);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 })();
