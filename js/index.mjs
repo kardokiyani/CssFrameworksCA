@@ -4,25 +4,18 @@
 
 import deletePost from "./deletePost.mjs";
 
+import { authFetch } from "./api/authFetch.mjs";
+
 const API_BASE_URL = "https://nf-api.onrender.com";
 
 const content = document.querySelector(".postContent");
 
 async function getPostContent() {
-  const getPostContentUrl = `${API_BASE_URL}/api/v1/social/posts`;
-
-  const token = localStorage.getItem("accessToken");
-
-  const options = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  const url = `${API_BASE_URL}/api/v1/social/posts`;
+  const method = "GET";
 
   try {
-    const response = await fetch(getPostContentUrl, options);
+    const response = await authFetch(url, method);
     const results = await response.json();
 
     console.log(results);
@@ -41,7 +34,7 @@ async function getPostContent() {
       <button type="button" id="delete" data-delete="${results[i].id}" class="btn btn-primary btn-sm mt-3">
         Delete
       </button>
-      <a href="update_post.html?id="${results[i].id}" class="btn btn-primary btn-sm mt-3">
+      <a href="update_post.html?id=${results[i].id}" class="btn btn-primary btn-sm mt-3">
         Update Post
       </a>`;
 

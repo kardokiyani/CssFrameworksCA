@@ -1,79 +1,27 @@
-// function deletePost(results) {
-//   const html = `<body>
-//   <nav class="navbar">
-//     <ul>
-//       <li><a href="index.html" class="navbarStyle">Home</a></li>
-//       <li><a href="login.html" class="navbarStyle">Login</a></li>
-//       <li><a href="signup.html" class="navbarStyle">Sign-Up</a></li>
-//       <li><a href="profile.html" class="navbarStyle">Profile</a></li>
-//       <li><a href="post-specific.html" class="navbarStyle">Post Specific</a></li>
-//     </ul>
-//     <div class="logo-premier"></div>
-//   </nav>
-//   <main>
-//     <div class="h1-container">
-//       <h1 class="h1-style">Post Specific Page</h1>
-//     </div>
-//     <div class="formContainer">
-//     </form>
-//   </div>
-//   </div>
+import { authFetch } from "./api/authFetch.mjs";
 
-//   <div class="formContainer">
-//     <form id="form">
-//       <div class="form-group mb-3">
-//         <label for="" class="labelStyle">Title</label>
-//         <input class="form-control" type="text" name="title" id="titleId">
-//       </div>
+const params = new URLSearchParams(document.location.search);
+const id = params.get("id");
+if (!id) location.href = "index.html";
 
-//       <div class="form-error" id="titleError">
-//         Please enter your title
-//       </div>
+const url = "https://nf-api.onrender.com/api/v1/social/posts/" + id;
+const container = document.querySelector(".post-specific-container");
+const h1 = document.querySelector("h1");
 
-//       <div class="form-group mb-3">
-//         <label for="" class="labelStyle">Body</label>
-//         <textarea class="form-control" name="body" id="bodyId"></textarea>
-//       </div>
+(async function getPost() {
+  const method = "GET";
 
-//       <div class="form-error" id="bodyError">
-//         Please enter your body
-//       </div>
+  try {
+    const response = await authFetch(url, method);
+    const json = await response.json();
 
-//       <div class="form-group mb-3">
-//         <label for="" class="labelStyle">Tags</label>
-//         <textarea class="form-control" type="text" name="tags" id="tagsId"></textarea>
-//       </div>
+    h1.innerHTML = `${json.title}`;
 
-//       <div class="form-error" id="tagsError">
-//         Please enter your tags
-//       </div>
-
-//       <div class="buttonContainer">
-//       <input class="btn btn-success" type="submit" value="Update Post">
-//     </div>
-
-//     <button type="button" class="btn btn-primary btn-sm mt-3" onclick="deletePost(${results.id})">
-//     Delete
-//     </button>
-
-//     </form>
-//     </form>
-//   </div>
-
-//   <div class="postContent"></div>
-//   </main>
-//   <footer></footer>
-//   <script
-//     defer
-//     src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-//   ></script>
-//   <script type="module" src="js/index.mjs"></script>
-//   <script type="module" src="js/updatePost.mjs"></script>
-// </body>`;
-//   return html;
-// }
-// export { makePost };
-
-/* <button type="button" class="btn btn-primary btn-sm mt-3" onclick="deletePost(${results[i].id})">
-    Delete
-    </button> */
+    container.innerHTML = `
+        <p>${json.body}</p>
+        <p>${json.tags}</p>
+    `;
+  } catch (error) {
+    console.log(error);
+  }
+})();

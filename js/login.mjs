@@ -30,6 +30,7 @@ async function loginUser() {
     console.log(json);
     const accessToken = json.accessToken;
     localStorage.setItem("accessToken", accessToken);
+    if (response.status === 200) location.href = "index.html";
     if (json.error) {
       validateForm();
     }
