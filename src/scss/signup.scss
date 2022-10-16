@@ -19,7 +19,19 @@
   text-decoration: underline;
 }
 
-.formInputError {
+.vh-100 {
+  padding: 50px;
+}
+
+.card-body {
+  padding: 50px;
+}
+
+.text-black {
+  margin: 50px;
+}
+
+.form-error {
   display: none;
   color: $red;
 }
