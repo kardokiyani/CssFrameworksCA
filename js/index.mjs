@@ -3,6 +3,7 @@
 import { renderPosts } from "./ui/renderPosts.mjs";
 import { searchPosts } from "./ui/searchPosts.mjs";
 import { authFetch } from "./api/authFetch.mjs";
+import { filterPosts } from "./ui/searchPosts.mjs";
 
 const API_BASE_URL = "https://nf-api.onrender.com";
 
