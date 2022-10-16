@@ -23,3 +23,9 @@ async function getPostContent() {
 }
 
 getPostContent();
+
+const checkboxEvent = document.querySelector("#testfilter");
+
+checkboxEvent.addEventListener("change", function () {
+  getPostContent();
+});

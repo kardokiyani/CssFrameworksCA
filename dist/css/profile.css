@@ -21721,6 +21721,18 @@ nav ul {
   margin: 5px;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.checkboxContainer {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
 .img-style {
   width: 500px;
 }
